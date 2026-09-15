@@ -1,0 +1,357 @@
+/* =========================
+   ОСНОВНЫЕ НАСТРОЙКИ
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fa;
+    color: #263238;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   ШАПКА
+========================= */
+
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #dce4eb;
+    padding: 18px 8%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header h2 {
+    margin: 0;
+    color: #173f67;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================
+   ОСНОВНОЙ КОНТЕНТ
+========================= */
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 25px;
+}
+
+
+/* =========================
+   ГЛАВНАЯ СТРАНИЦА
+========================= */
+
+.intro {
+    background: #ffffff;
+    padding: 55px 40px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid #dce4eb;
+    margin-bottom: 50px;
+}
+
+.intro h1 {
+    margin: 0 0 10px;
+    font-size: 42px;
+    color: #173f67;
+    font-weight: 600;
+}
+
+.intro h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+    color: #546e7a;
+}
+
+.intro p {
+    color: #607d8b;
+    font-size: 17px;
+}
+
+
+/* =========================
+   ФОТО
+========================= */
+
+.student-photo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 20px;
+    border: 5px solid #e8eef3;
+}
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects h2 {
+    color: #173f67;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.project-card {
+    display: block;
+    background: #ffffff;
+    border: 1px solid #dce4eb;
+    border-radius: 14px;
+    padding: 28px;
+    transition: 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: #7da4c5;
+    box-shadow: 0 10px 25px rgba(23, 63, 103, 0.10);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: #173f67;
+    font-size: 20px;
+}
+
+.project-card p {
+    color: #607d8b;
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   СТРАНИЦЫ PROJECT
+========================= */
+
+.project-content {
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 16px;
+    border: 1px solid #dce4eb;
+}
+
+
+/* PROJECT 01 / PROJECT 02 */
+
+.project-content h1 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #173f67;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.project-content h1::after {
+    content: "";
+    display: block;
+    width: 45px;
+    height: 3px;
+    background: #2f6f9f;
+    margin-top: 12px;
+    border-radius: 3px;
+}
+
+
+/* ОСНОВНЫЕ ЗАГОЛОВКИ */
+
+.project-content h2 {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: #173f67;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+/* ТЕКСТ */
+
+.project-content p {
+    font-size: 17px;
+    color: #455a64;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   ФОРМУЛЫ
+========================= */
+
+.formula {
+    background: #eef4f8;
+    border-left: 4px solid #2f6f9f;
+    padding: 18px 22px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-family: "Courier New", monospace;
+    font-size: 17px;
+    color: #263238;
+}
+
+
+/* =========================
+   КАЛЬКУЛЯТОР
+========================= */
+
+.calculator {
+    background: #f5f8fa;
+    border: 1px solid #d5e0e8;
+    border-radius: 14px;
+    padding: 30px;
+    margin-top: 35px;
+}
+
+.calculator h2 {
+    margin-top: 0;
+    color: #173f67;
+}
+
+.calculator label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #37474f;
+}
+
+.calculator input {
+    width: 100%;
+    max-width: 300px;
+    padding: 11px 13px;
+    border: 1px solid #c6d2dc;
+    border-radius: 7px;
+    font-size: 16px;
+    background: #ffffff;
+}
+
+.calculator input:focus {
+    outline: none;
+    border-color: #2f6f9f;
+}
+
+.calculator button {
+    display: block;
+    margin-top: 25px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 7px;
+    background: #245d87;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.calculator button:hover {
+    background: #173f67;
+}
+
+
+/* =========================
+   РЕЗУЛЬТАТ
+========================= */
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background: #ffffff;
+    border: 1px solid #d5e0e8;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #173f67;
+}
+
+
+/* =========================
+   КНОПКА НАЗАД
+========================= */
+
+.back {
+    margin-top: 30px;
+}
+
+.back a {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #ffffff;
+    border: 1px solid #d5e0e8;
+    border-radius: 7px;
+    color: #245d87;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.back a:hover {
+    background: #eef4f8;
+    border-color: #7da4c5;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #78909c;
+    font-size: 14px;
+}
+
+
+/* =========================
+   АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНА
+========================= */
+
+@media (max-width: 700px) {
+
+    main {
+        padding: 30px 15px;
+    }
+
+    .intro {
+        padding: 35px 20px;
+    }
+
+    .intro h1 {
+        font-size: 32px;
+    }
+
+    .project-list {
+        grid-template-columns: 1fr;
+    }
+
+    .project-content {
+        padding: 30px 20px;
+    }
+
+    .project-content h1 {
+        font-size: 14px;
+    }
+
+    .project-content h2 {
+        font-size: 22px;
+    }
+}

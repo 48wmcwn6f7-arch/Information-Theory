@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Project 01 — Probability and Combinatorics</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h2>
+        Information Theory
+    </h2>
+
+</header>
+
+
+<main>
+
+
+    <!-- TITLE -->
+
+    <section class="intro">
+
+        <h1>Project 01</h1>
+
+        <h2>
+            Elementary Probability & Combinatorics
+        </h2>
+
+        <p>
+            Information Theory — Polina Kuzavkova
+        </p>
+
+    </section>
+
+
+
+    <!-- THEORY -->
+
+    <section class="project-content">
+
+        <h2>Theory</h2>
+
+        <p>
+            Probability theory studies random events
+            and the possibility of their occurrence.
+        </p>
+
+        <p>
+            In information theory, probability is used
+            to describe the uncertainty of an event
+            and to calculate the amount of information.
+        </p>
+
+        <p>
+            Combinatorics studies different ways of
+            selecting and arranging objects. Factorials,
+            permutations, combinations, and arrangements
+            are basic combinatorial concepts.
+        </p>
+
+    </section>
+
+
+
+    <!-- FACTORIAL -->
+
+    <section class="project-content">
+
+        <h2>1. Factorial</h2>
+
+        <p>
+            The factorial of a non-negative integer n
+            is the product of all positive integers
+            from 1 to n.
+        </p>
+
+        <p class="formula">
+            n! = 1 · 2 · 3 · ... · n
+        </p>
+
+
+        <div class="calculator">
+
+            <h2>Factorial Calculator</h2>
+
+            <label for="factorialInput">
+                Enter n:
+            </label>
+
+            <input
+                type="number"
+                id="factorialInput"
+                min="0"
+                placeholder="Example: 5"
+            >
+
+            <button onclick="calculateFactorial()">
+                Calculate
+            </button>
+
+            <div
+                id="factorialResult"
+                class="result">
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- PERMUTATIONS -->
+
+    <section class="project-content">
+
+        <h2>2. Permutations</h2>
+
+        <p>
+            Permutations describe the number of possible
+            orders of n different objects.
+        </p>
+
+        <p class="formula">
+            P(n) = n!
+        </p>
+
+
+        <div class="calculator">
+
+            <h2>Permutations Calculator</h2>
+
+            <label for="permutationInput">
+                Enter n:
+            </label>
+
+            <input
+                type="number"
+                id="permutationInput"
+                min="0"
+                placeholder="Example: 5"
+            >
+
+            <button onclick="calculatePermutation()">
+                Calculate
+            </button>
+
+            <div
+                id="permutationResult"
+                class="result">
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- COMBINATIONS -->
+
+    <section class="project-content">
+
+        <h2>3. Combinations</h2>
+
+        <p>
+            Combinations determine the number of ways
+            to choose k objects from n objects without
+            considering their order.
+        </p>
+
+        <p class="formula">
+            C(n,k) = n! / (k!(n-k)!)
+        </p>
+
+
+        <div class="calculator">
+
+            <h2>Combinations Calculator</h2>
+
+            <label for="nInput">
+                Enter n:
+            </label>
+
+            <input
+                type="number"
+                id="nInput"
+                min="0"
+                placeholder="n"
+            >
+
+
+            <label for="kInput">
+                Enter k:
+            </label>
+
+            <input
+                type="number"
+                id="kInput"
+                min="0"
+                placeholder="k"
+            >
+
+
+            <button onclick="calculateCombination()">
+                Calculate
+            </button>
+
+
+            <div
+                id="combinationResult"
+                class="result">
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- PERMUTATIONS WITH REPETITION -->
+
+    <section class="project-content">
+
+        <h2>4. Permutations with Repetition</h2>
+
+        <p>
+            Permutations with repetition are used when
+            some objects are identical.
+        </p>
+
+        <p class="formula">
+            P = n! / k!
+        </p>
+
+
+        <div class="calculator">
+
+            <h2>Permutations with Repetition Calculator</h2>
+
+            <label for="repeatN">
+                Enter n:
+            </label>
+
+            <input
+                type="number"
+                id="repeatN"
+                min="0"
+                placeholder="Total number of objects"
+            >
+
+
+            <label for="repeatK">
+                Enter k:
+            </label>
+
+            <input
+                type="number"
+                id="repeatK"
+                min="0"
+                placeholder="Number of repeated objects"
+            >
+
+
+            <button onclick="calculateRepetition()">
+                Calculate
+            </button>
+
+
+            <div
+                id="repeatResult"
+                class="result">
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ARRANGEMENTS -->
+
+    <section class="project-content">
+
+        <h2>5. Arrangements</h2>
+
+        <p>
+            Arrangements are used to select and order
+            k objects from n objects.
+        </p>
+
+        <p class="formula">
+            A(n,k) = n! / (n-k)!
+        </p>
+
+
+        <div class="calculator">
+
+            <h2>Arrangements Calculator</h2>
+
+            <label for="arrN">
+                Enter n:
+            </label>
+
+            <input
+                type="number"
+                id="arrN"
+                min="0"
+                placeholder="n"
+            >
+
+
+            <label for="arrK">
+                Enter k:
+            </label>
+
+            <input
+                type="number"
+                id="arrK"
+                min="0"
+                placeholder="k"
+            >
+
+
+            <button onclick="calculateArrangement()">
+                Calculate
+            </button>
+
+
+            <div
+                id="arrResult"
+                class="result">
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- BACK -->
+
+    <section class="back">
+
+        <a href="index.html">
+            ← Back to Home
+        </a>
+
+    </section>
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        Information Theory — Polina Kuzavkova
+    </p>
+
+</footer>
+
+
+
+<script>
+
+
+/* FACTORIAL */
+
+function factorial(n) {
+
+    let result = 1;
+
+    for (let i = 2; i <= n; i++) {
+
+        result *= i;
+
+    }
+
+    return result;
+}
+
+
+
+/* FACTORIAL CALCULATOR */
+
+function calculateFactorial() {
+
+    const input =
+        document.getElementById("factorialInput");
+
+    const result =
+        document.getElementById("factorialResult");
+
+    const n =
+        Number(input.value);
+
+
+    if (
+        input.value === "" ||
+        n < 0 ||
+        !Number.isInteger(n)
+    ) {
+
+        result.innerText =
+            "Please enter a non-negative integer.";
+
+        return;
+    }
+
+
+    result.innerHTML =
+        `<strong>${n}! = ${factorial(n)}</strong>`;
+
+}
+
+
+
+/* PERMUTATIONS CALCULATOR */
+
+function calculatePermutation() {
+
+    const input =
+        document.getElementById("permutationInput");
+
+    const result =
+        document.getElementById("permutationResult");
+
+    const n =
+        Number(input.value);
+
+
+    if (
+        input.value === "" ||
+        n < 0 ||
+        !Number.isInteger(n)
+    ) {
+
+        result.innerText =
+            "Please enter a non-negative integer.";
+
+        return;
+    }
+
+
+    result.innerHTML =
+        `<strong>P(${n}) = ${factorial(n)}</strong>`;
+
+}
+
+
+
+/* COMBINATIONS CALCULATOR */
+
+function calculateCombination() {
+
+    const n =
+        Number(
+            document.getElementById("nInput").value
+        );
+
+    const k =
+        Number(
+            document.getElementById("kInput").value
+        );
+
+    const result =
+        document.getElementById("combinationResult");
+
+
+    if (
+        !Number.isInteger(n) ||
+        !Number.isInteger(k) ||
+        n < 0 ||
+        k < 0 ||
+        k > n
+    ) {
+
+        result.innerText =
+            "Please enter valid values: n ≥ k ≥ 0.";
+
+        return;
+    }
+
+
+    const combination =
+        factorial(n) /
+        (
+            factorial(k) *
+            factorial(n - k)
+        );
+
+
+    result.innerHTML =
+        `<strong>C(${n}, ${k}) = ${combination}</strong>`;
+
+}
+
+
+
+/* PERMUTATIONS WITH REPETITION */
+
+function calculateRepetition() {
+
+    const n =
+        Number(
+            document.getElementById("repeatN").value
+        );
+
+    const k =
+        Number(
+            document.getElementById("repeatK").value
+        );
+
+    const result =
+        document.getElementById("repeatResult");
+
+
+    if (
+        !Number.isInteger(n) ||
+        !Number.isInteger(k) ||
+        n < 0 ||
+        k < 0 ||
+        k > n
+    ) {
+
+        result.innerText =
+            "Please enter valid values: n ≥ k ≥ 0.";
+
+        return;
+    }
+
+
+    const repetition =
+        factorial(n) / factorial(k);
+
+
+    result.innerHTML =
+        `<strong>P = ${repetition}</strong>`;
+
+}
+
+
+
+/* ARRANGEMENTS CALCULATOR */
+
+function calculateArrangement() {
+
+    const n =
+        Number(
+            document.getElementById("arrN").value
+        );
+
+    const k =
+        Number(
+            document.getElementById("arrK").value
+        );
+
+    const result =
+        document.getElementById("arrResult");
+
+
+    if (
+        !Number.isInteger(n) ||
+        !Number.isInteger(k) ||
+        n < 0 ||
+        k < 0 ||
+        k > n
+    ) {
+
+        result.innerText =
+            "Please enter valid values: n ≥ k ≥ 0.";
+
+        return;
+    }
+
+
+    let arrangement = 1;
+
+    for (let i = 0; i < k; i++) {
+
+        arrangement *= (n - i);
+
+    }
+
+
+    result.innerHTML =
+        `<strong>A(${n}, ${k}) = ${arrangement}</strong>`;
+
+}
+
+</script>
+
+
+
+</body>
+
+</html>

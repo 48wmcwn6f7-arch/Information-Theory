@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project 03 — Shannon Entropy & Hamming Code</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h2>
+        Information Theory
+    </h2>
+
+</header>
+
+
+<main>
+
+
+    <!-- TITLE -->
+
+    <section class="project-content">
+
+        <h1>Project 03</h1>
+
+        <h2>
+            Shannon Entropy & Hamming Code
+        </h2>
+
+        <p>
+            Information Theory — Polina Kuzavkova
+        </p>
+
+
+        <!-- THEORY -->
+
+        <h2>Theory</h2>
+
+        <p>
+            Shannon entropy is a measure of the uncertainty
+            or randomness of a source of information.
+        </p>
+
+        <p>
+            The greater the uncertainty of a source,
+            the greater its entropy. Entropy is used to
+            quantify the average amount of information
+            contained in a message.
+        </p>
+
+        <p>
+            Shannon entropy is measured in bits when the
+            logarithm has base 2.
+        </p>
+
+
+        <!-- FORMULA -->
+
+        <h2>Shannon Entropy Formula</h2>
+
+        <p>
+            For a discrete random variable X, Shannon entropy
+            is calculated using the following formula:
+        </p>
+
+        <div class="formula">
+            H(X) = −Σ p(x) log₂ p(x)
+        </div>
+
+        <p>
+            Here, p(x) represents the probability of each
+            possible outcome. The entropy describes the
+            average uncertainty of the information source.
+        </p>
+
+
+        <!-- EXAMPLE -->
+
+        <h2>Example</h2>
+
+        <p>
+            Consider a binary source with two equally
+            probable symbols:
+        </p>
+
+        <div class="formula">
+            p(0) = 0.5
+            <br>
+            p(1) = 0.5
+        </div>
+
+        <p>
+            The entropy is:
+        </p>
+
+        <div class="formula">
+            H(X) = −(0.5 log₂ 0.5 + 0.5 log₂ 0.5) = 1 bit
+        </div>
+
+        <p>
+            Therefore, a binary source with two equally
+            probable outcomes has an entropy of 1 bit.
+        </p>
+
+
+        <!-- HAMMING CONNECTION -->
+
+        <h2>Connection with Hamming Code</h2>
+
+        <p>
+            Shannon entropy describes the amount of uncertainty
+            and information in a source, while Hamming Code
+            is used to protect transmitted information from
+            errors.
+        </p>
+
+        <p>
+            These concepts are connected through information
+            transmission. Entropy helps describe the information
+            source, while error-correcting codes help ensure
+            that the information is received correctly.
+        </p>
+
+        <div class="formula">
+            Information Source → Entropy → Encoding → Transmission → Error Correction
+        </div>
+
+
+        <!-- CALCULATOR -->
+
+        <section class="calculator">
+
+            <h2>Shannon Entropy Calculator</h2>
+
+            <p>
+                Enter the probabilities of two possible
+                outcomes. Their sum must be equal to 1.
+            </p>
+
+
+            <label for="prob1">
+                Probability p₁:
+            </label>
+
+            <input
+                type="number"
+                id="prob1"
+                min="0"
+                max="1"
+                step="0.01"
+                placeholder="Example: 0.5"
+            >
+
+
+            <label for="prob2">
+                Probability p₂:
+            </label>
+
+            <input
+                type="number"
+                id="prob2"
+                min="0"
+                max="1"
+                step="0.01"
+                placeholder="Example: 0.5"
+            >
+
+
+            <button onclick="calculateEntropy()">
+                Calculate
+            </button>
+
+
+            <div
+                class="result"
+                id="entropyResult">
+            </div>
+
+        </section>
+
+
+    </section>
+
+
+    <!-- BACK -->
+
+    <div class="back">
+
+        <a href="index.html">
+            ← Back to Home
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        Information Theory — Polina Kuzavkova
+    </p>
+
+</footer>
+
+
+
+<script>
+
+function calculateEntropy() {
+
+    const p1 =
+        Number(
+            document.getElementById("prob1").value
+        );
+
+    const p2 =
+        Number(
+            document.getElementById("prob2").value
+        );
+
+    const result =
+        document.getElementById("entropyResult");
+
+
+    // Check probability values
+
+    if (
+        isNaN(p1) ||
+        isNaN(p2) ||
+        p1 < 0 ||
+        p2 < 0 ||
+        p1 > 1 ||
+        p2 > 1
+    ) {
+
+        result.innerText =
+            "Please enter probabilities between 0 and 1.";
+
+        return;
+    }
+
+
+    // Check that probabilities add up to 1
+
+    if (Math.abs((p1 + p2) - 1) > 0.000001) {
+
+        result.innerText =
+            "The probabilities must add up to 1.";
+
+        return;
+    }
+
+
+    // Calculate entropy
+
+    let entropy = 0;
+
+
+    if (p1 > 0) {
+
+        entropy -=
+            p1 * Math.log2(p1);
+
+    }
+
+
+    if (p2 > 0) {
+
+        entropy -=
+            p2 * Math.log2(p2);
+
+    }
+
+
+    result.innerHTML =
+        `<strong>Shannon Entropy: ${entropy.toFixed(4)} bits</strong>`;
+
+}
+
+</script>
+
+
+</body>
+
+</html>

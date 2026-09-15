@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project 02 — Hamming Code</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h2>
+        Information Theory
+    </h2>
+
+</header>
+
+
+<main>
+
+
+    <section class="project-content">
+
+        <h1>Project 02</h1>
+
+        <h2>Hamming Code</h2>
+
+        <p>
+            Information Theory — Polina Kuzavkova
+        </p>
+
+
+        <!-- THEORY -->
+
+        <h2>Theory</h2>
+
+        <p>
+            Hamming Code is an error-correcting coding method
+            used to detect and correct errors during the
+            transmission and storage of information.
+        </p>
+
+        <p>
+            When data is transmitted through a communication
+            channel, information can be corrupted. For example,
+            one transmitted bit can change its value from 0 to 1
+            or from 1 to 0.
+        </p>
+
+        <p>
+            Hamming Code makes it possible to detect such an error
+            and determine the position of the incorrect bit.
+            The receiver can then correct the error and restore
+            the original information.
+        </p>
+
+
+        <!-- PRINCIPLE -->
+
+        <h2>How Hamming Code Works</h2>
+
+        <p>
+            To protect information, special parity bits are added
+            to the original data. These bits are used to check
+            whether the transmitted sequence is correct.
+        </p>
+
+        <p>
+            In Hamming Code, parity bits are placed at positions
+            whose numbers are powers of two:
+            1, 2, 4, 8, and so on.
+        </p>
+
+        <p>
+            Each parity bit checks a specific group of positions
+            in the codeword. After receiving the message, the same
+            checks can be performed again to determine whether
+            an error has occurred.
+        </p>
+
+
+        <!-- HAMMING 7,4 -->
+
+        <h2>Hamming Code (7,4)</h2>
+
+        <p>
+            In this project, Hamming Code (7,4) is used.
+            It contains four data bits and three parity bits.
+            The resulting codeword contains seven bits.
+        </p>
+
+        <div class="formula">
+            Hamming (7,4) = 4 data bits + 3 parity bits
+        </div>
+
+        <p>
+            The codeword has the following structure:
+        </p>
+
+        <div class="formula">
+            p₁ p₂ d₁ p₄ d₂ d₃ d₄
+        </div>
+
+        <p>
+            Here, <b>d₁, d₂, d₃, d₄</b> are data bits,
+            while <b>p₁, p₂, p₄</b> are parity bits.
+        </p>
+
+
+        <!-- FORMULAS -->
+
+        <h2>Parity Bit Calculation</h2>
+
+        <p>
+            The parity bits are calculated using the data bits.
+            For Hamming Code (7,4), the following formulas are used:
+        </p>
+
+        <div class="formula">
+            p₁ = d₁ ⊕ d₂ ⊕ d₄
+        </div>
+
+        <div class="formula">
+            p₂ = d₁ ⊕ d₃ ⊕ d₄
+        </div>
+
+        <div class="formula">
+            p₄ = d₂ ⊕ d₃ ⊕ d₄
+        </div>
+
+        <p>
+            The symbol ⊕ represents the exclusive OR (XOR)
+            operation. The result is 1 when the number of ones
+            is odd, and 0 when the number of ones is even.
+        </p>
+
+
+        <!-- EXAMPLE -->
+
+        <h2>Calculation Example</h2>
+
+        <p>
+            Consider the following data bits:
+            <b>1 0 1 1</b>.
+        </p>
+
+        <p>
+            The parity bits are calculated as follows:
+        </p>
+
+        <div class="formula">
+            p₁ = 1 ⊕ 0 ⊕ 1 = 0
+        </div>
+
+        <div class="formula">
+            p₂ = 1 ⊕ 1 ⊕ 1 = 1
+        </div>
+
+        <div class="formula">
+            p₄ = 0 ⊕ 1 ⊕ 1 = 0
+        </div>
+
+        <p>
+            After inserting the parity bits, we obtain
+            the seven-bit codeword:
+        </p>
+
+        <div class="formula">
+            0 1 1 0 0 1 1
+        </div>
+
+        <p>
+            Therefore, the Hamming Code for the data sequence
+            <b>1011</b> is <b>0110011</b>.
+        </p>
+
+
+        <!-- CALCULATOR -->
+
+        <section class="calculator">
+
+            <h2>Hamming Code Calculator</h2>
+
+            <p>
+                Enter four data bits.
+                Each bit must have a value of 0 or 1.
+            </p>
+
+            <label for="bit1">
+                Bit 1:
+            </label>
+
+            <input
+                type="number"
+                id="bit1"
+                min="0"
+                max="1"
+            >
+
+
+            <label for="bit2">
+                Bit 2:
+            </label>
+
+            <input
+                type="number"
+                id="bit2"
+                min="0"
+                max="1"
+            >
+
+
+            <label for="bit3">
+                Bit 3:
+            </label>
+
+            <input
+                type="number"
+                id="bit3"
+                min="0"
+                max="1"
+            >
+
+
+            <label for="bit4">
+                Bit 4:
+            </label>
+
+            <input
+                type="number"
+                id="bit4"
+                min="0"
+                max="1"
+            >
+
+
+            <button onclick="calculateHamming()">
+                Calculate
+            </button>
+
+
+            <div
+                class="result"
+                id="hammingResult">
+            </div>
+
+        </section>
+
+
+    </section>
+
+
+    <!-- BACK -->
+
+    <div class="back">
+
+        <a href="index.html">
+            ← Back to Home
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        Information Theory — Polina Kuzavkova
+    </p>
+
+</footer>
+
+
+
+<script>
+
+function calculateHamming() {
+
+    const d1 =
+        Number(document.getElementById("bit1").value);
+
+    const d2 =
+        Number(document.getElementById("bit2").value);
+
+    const d3 =
+        Number(document.getElementById("bit3").value);
+
+    const d4 =
+        Number(document.getElementById("bit4").value);
+
+
+    if (
+        ![d1, d2, d3, d4].every(
+            bit => bit === 0 || bit === 1
+        )
+    ) {
+
+        document.getElementById("hammingResult").innerText =
+            "Please enter only 0 or 1.";
+
+        return;
+    }
+
+
+    const p1 =
+        (d1 + d2 + d4) % 2;
+
+    const p2 =
+        (d1 + d3 + d4) % 2;
+
+    const p4 =
+        (d2 + d3 + d4) % 2;
+
+
+    const code =
+        p1 + "" +
+        p2 + "" +
+        d1 + "" +
+        p4 + "" +
+        d2 + "" +
+        d3 + "" +
+        d4;
+
+
+    document.getElementById("hammingResult").innerText =
+        "Hamming Code: " + code;
+
+}
+
+</script>
+
+
+</body>
+
+</html>

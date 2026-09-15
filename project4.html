@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project 04 — Game Theory & Nash Equilibrium</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h2>
+        Information Theory
+    </h2>
+
+</header>
+
+
+<main>
+
+
+    <!-- TITLE -->
+
+    <section class="project-content">
+
+        <h1>Project 04</h1>
+
+        <h2>
+            Game Theory & Nash Equilibrium
+        </h2>
+
+        <p>
+            Information Theory — Polina Kuzavkova
+        </p>
+
+
+        <!-- THEORY -->
+
+        <h2>Theory</h2>
+
+        <p>
+            Game theory is a mathematical framework used to
+            study situations in which the result depends on
+            the decisions of several participants.
+        </p>
+
+        <p>
+            Each participant, called a player, chooses a strategy.
+            The combination of strategies determines the outcome
+            and the payoff received by each player.
+        </p>
+
+        <p>
+            Game theory is used in economics, computer science,
+            business, politics, and many other fields.
+        </p>
+
+
+        <!-- NASH EQUILIBRIUM -->
+
+        <h2>Nash Equilibrium</h2>
+
+        <p>
+            A Nash equilibrium is a situation in which no player
+            can improve their result by changing their strategy
+            alone while the strategies of the other players
+            remain unchanged.
+        </p>
+
+        <p>
+            In other words, every player's strategy is the best
+            response to the strategies chosen by the other players.
+        </p>
+
+
+        <!-- PAYOFF MATRIX -->
+
+        <h2>Payoff Matrix</h2>
+
+        <p>
+            Consider a simple two-player game.
+            Each player can choose strategy A or strategy B.
+            The values in the matrix represent the payoffs
+            of Player 1 and Player 2.
+        </p>
+
+        <div class="formula">
+            A, A → (3, 3)
+            <br>
+            A, B → (0, 2)
+            <br>
+            B, A → (2, 0)
+            <br>
+            B, B → (1, 1)
+        </div>
+
+        <p>
+            For example, the result (3, 3) means that both
+            players receive a payoff of 3.
+        </p>
+
+
+        <!-- EXAMPLE -->
+
+        <h2>Example of Nash Equilibrium</h2>
+
+        <p>
+            Suppose both players choose strategy A.
+            The resulting payoff is (3, 3).
+        </p>
+
+        <p>
+            If one player changes their strategy while the
+            other player continues to choose A, their payoff
+            becomes lower. Therefore, neither player has an
+            incentive to change their strategy alone.
+        </p>
+
+        <div class="formula">
+            Nash Equilibrium → (A, A)
+        </div>
+
+
+        <!-- CALCULATOR -->
+
+        <section class="calculator">
+
+            <h2>Nash Equilibrium Calculator</h2>
+
+            <p>
+                Enter the payoffs for the four possible
+                combinations of strategies.
+            </p>
+
+
+            <h3>Player 1 — Strategy A / Player 2 — Strategy A</h3>
+
+            <label for="aa1">
+                Player 1 payoff:
+            </label>
+
+            <input
+                type="number"
+                id="aa1"
+                placeholder="Example: 3"
+            >
+
+            <label for="aa2">
+                Player 2 payoff:
+            </label>
+
+            <input
+                type="number"
+                id="aa2"
+                placeholder="Example: 3"
+            >
+
+
+            <h3>Player 1 — Strategy A / Player 2 — Strategy B</h3>
+
+            <label for="ab1">
+                Player 1 payoff:
+            </label>
+
+            <input
+                type="number"
+                id="ab1"
+                placeholder="Example: 0"
+            >
+
+            <label for="ab2">
+                Player 2 payoff:
+            </label>
+
+            <input
+                type="number"
+                id="ab2"
+                placeholder="Example: 2"
+            >
+
+
+            <h3>Player 1 — Strategy B / Player 2 — Strategy A</h3>
+
+            <label for="ba1">
+                Player 1 payoff:
+            </label>
+
+            <input
+                type="number"
+                id="ba1"
+                placeholder="Example: 2"
+            >
+
+            <label for="ba2">
+                Player 2 payoff:
+            </label>
+
+            <input
+                type="number"
+                id="ba2"
+                placeholder="Example: 0"
+            >
+
+
+            <h3>Player 1 — Strategy B / Player 2 — Strategy B</h3>
+
+            <label for="bb1">
+                Player 1 payoff:
+            </label>
+
+            <input
+                type="number"
+                id="bb1"
+                placeholder="Example: 1"
+            >
+
+            <label for="bb2">
+                Player 2 payoff:
+            </label>
+
+            <input
+                type="number"
+                id="bb2"
+                placeholder="Example: 1"
+            >
+
+
+            <button onclick="calculateNash()">
+                Calculate
+            </button>
+
+
+            <div
+                class="result"
+                id="nashResult">
+            </div>
+
+        </section>
+
+
+    </section>
+
+
+    <!-- BACK -->
+
+    <div class="back">
+
+        <a href="index.html">
+            ← Back to Home
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        Information Theory — Polina Kuzavkova
+    </p>
+
+</footer>
+
+
+
+<script>
+
+function calculateNash() {
+
+    const aa1 = Number(document.getElementById("aa1").value);
+    const aa2 = Number(document.getElementById("aa2").value);
+
+    const ab1 = Number(document.getElementById("ab1").value);
+    const ab2 = Number(document.getElementById("ab2").value);
+
+    const ba1 = Number(document.getElementById("ba1").value);
+    const ba2 = Number(document.getElementById("ba2").value);
+
+    const bb1 = Number(document.getElementById("bb1").value);
+    const bb2 = Number(document.getElementById("bb2").value);
+
+    const result =
+        document.getElementById("nashResult");
+
+
+    const values = [
+        aa1, aa2,
+        ab1, ab2,
+        ba1, ba2,
+        bb1, bb2
+    ];
+
+
+    if (values.some(value => isNaN(value))) {
+
+        result.innerText =
+            "Please enter all payoff values.";
+
+        return;
+    }
+
+
+    let equilibria = [];
+
+
+    /*
+        (A,A)
+        Player 1 compares AA with BA.
+        Player 2 compares AA with AB.
+    */
+
+    if (
+        aa1 >= ba1 &&
+        aa2 >= ab2
+    ) {
+
+        equilibria.push("(A, A)");
+
+    }
+
+
+    /*
+        (A,B)
+        Player 1 compares AB with BB.
+        Player 2 compares AB with AA.
+    */
+
+    if (
+        ab1 >= bb1 &&
+        ab2 >= aa2
+    ) {
+
+        equilibria.push("(A, B)");
+
+    }
+
+
+    /*
+        (B,A)
+        Player 1 compares BA with AA.
+        Player 2 compares BA with BB.
+    */
+
+    if (
+        ba1 >= aa1 &&
+        ba2 >= bb2
+    ) {
+
+        equilibria.push("(B, A)");
+
+    }
+
+
+    /*
+        (B,B)
+        Player 1 compares BB with AB.
+        Player 2 compares BB with BA.
+    */
+
+    if (
+        bb1 >= ab1 &&
+        bb2 >= ba2
+    ) {
+
+        equilibria.push("(B, B)");
+
+    }
+
+
+    if (equilibria.length === 0) {
+
+        result.innerText =
+            "No pure-strategy Nash equilibrium was found.";
+
+    } else {
+
+        result.innerHTML =
+            "<strong>Possible Nash Equilibrium: " +
+            equilibria.join(", ") +
+            "</strong>";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
